@@ -2,11 +2,13 @@ CREATE DATABASE simple_store;
 
 \c simple_store;
 
+BEGIN;
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   first_name VARCHAR,
   last_name VARCHAR
 );
+
 CREATE TABLE products (
   id SERIAL PRIMARY KEY,
   name VARCHAR,
@@ -14,6 +16,7 @@ CREATE TABLE products (
   price INTEGER,
   weight INTEGER
 );
+
 CREATE TABLE orders (
   id SERIAL PRIMARY KEY,
   user_id INTEGER REFERENCES users(id),
@@ -732,3 +735,4 @@ VALUES
 	(27, 56, false),
 	(36, 95, false),
 	(3, 32, true);
+COMMIT;

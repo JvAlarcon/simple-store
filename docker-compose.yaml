@@ -1,0 +1,20 @@
+services:
+  console-app:
+    build: .
+    hostname: console-app
+    image: simple-store-app
+
+  postgres:
+    image: postgres
+    volumes:
+      - ./dataset/simple_store.sql:/docker-entrypoint-initdb.d/simple_store.sql
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "dbpwd123@@"
+    ports:
+      - "5532:5532"
+
+networks:
+  default:
+    driver: bridge
+    name: simple-store

@@ -34,5 +34,5 @@ module Purchases =
                 ProductName = r.string "product_name"
             })
     
-    let printPaidOders paidOrder =
+    let printPaidOrders paidOrder =
         printfn "%i | %s | %s" paidOrder.IdOrder paidOrder.UserFullName paidOrder.ProductName

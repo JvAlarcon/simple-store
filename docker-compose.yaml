@@ -13,10 +13,10 @@ services:
       interval: 10s
       timeout: 5s
       retries: 10
-  
-  console-app:
+
+  web-app:
     build: .
-    hostname: simple-store
+    hostname: simplestore
     image: simple-store-app
     depends_on:
       postgres:
@@ -24,3 +24,17 @@ services:
     links:
       - postgres
 
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - web-app
+    links:
+      - web-app
+
+networks:
+  default:
+    driver: bridge
+    name: simple-store

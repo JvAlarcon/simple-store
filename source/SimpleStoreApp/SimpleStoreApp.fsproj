@@ -5,9 +5,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Purchases.fs" />
+    <Compile Include="HtmlTemplate.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Giraffe" Version="7.0.2" />
     <PackageReference Include="Npgsql.FSharp" Version="8.0.0" />
+    <PackageReference Include="Scriban" Version="6.2.1" />
   </ItemGroup>
 </Project>
